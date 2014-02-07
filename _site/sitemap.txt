@@ -1,0 +1,7 @@
+
+http://username.github.io/rss.xml
+http://username.github.io/index.html
+http://username.github.io/android.html
+http://username.github.io/api.html
+http://username.github.io/atom.xml
+http://username.github.io/sitemap.txt
