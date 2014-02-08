@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Welcome | Game Frame
-navlink: Welcome
+title: Home | Game Frame
+navlink: Home
 group: navigation
 permalink: "index.html"
 ---
