@@ -6,6 +6,8 @@ group: navigation
 permalink: "index.html"
 ---
 
+## Welcome
+
 Game Frame is a card/board game framework designed to simplify game development for developers. With our framework, any developer will be able to easily build a high-quality board or card game.
 
 Here is a list of just some of Game Frame's features:

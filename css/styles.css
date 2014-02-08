@@ -3,7 +3,7 @@
 body {
   padding:20px 50px 50px 50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#777;
+  color:#222;
   font-weight:300;
 }
 
@@ -13,7 +13,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   color:#222;
-  margin:0 0 20px !important;
+  margin:0px 0px 20px;
 }
 
 p, ul, ol, table, pre, dl {
@@ -328,10 +328,6 @@ nav a:last-child {
 nav a.active {
   font-weight: bold;
   color: #353535;
-}
-
-.title {
-  margin:0px 0px 10px 0px;
 }
 
 
