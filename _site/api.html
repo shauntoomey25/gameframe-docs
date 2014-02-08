@@ -79,16 +79,16 @@
 
       </header>
       <section class="main">
-        <h2>Authentication Tokens</h2>
+        <h2 id="toc_0">Authentication Tokens</h2>
 
 <p><strong>Route:</strong> <em>GET /csrfToken</em></p>
 
 <p><strong>Input:</strong> None</p>
 
 <p><strong>Output:</strong></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">{
-    &quot;_csrf&quot;: &quot;5T0pzcHqfyC8b403okqnZDdtIfA10VEBOx64U=&quot; 
-}
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="s2">&quot;_csrf&quot;</span><span class="o">:</span> <span class="s2">&quot;5T0pzcHqfyC8b403okqnZDdtIfA10VEBOx64U=&quot;</span> 
+<span class="p">}</span>
 </code></pre></div>
 <p><strong>Notes:</strong></p>
 
@@ -99,16 +99,100 @@
 <li>Include the token as a request header titled &quot;X-CSRFToken&quot;.</li>
 </ol>
 
-<p>For more information, see <a href="http://sailsjs.org/#!documentation/config.csrf">here</a>.</p>
+<p>In the other API calls on this page, the CSRF token is included as a parameter as a reminder of its necessity, but remember that it can be sent as a header alternatively. For more information, see <a href="http://sailsjs.org/#!documentation/config.csrf">here</a>.</p>
 
-<h2>User Registration</h2>
+<h2 id="toc_1">User Registration</h2>
 
-<p>Coming Soon</p>
+<p><strong>Route:</strong> <em>POST /auth/local/register</em></p>
 
-<h2>User Login</h2>
+<p><strong>Input:</strong></p>
 
-<p>Coming Soon</p>
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>the user&#39;s unique name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>the user&#39;s email address</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the user&#39;s password</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>&quot;local&quot;</td>
+</tr>
+<tr>
+<td>_csrf</td>
+<td>authentication token (see Authentication Tokens section</td>
+</tr>
+</tbody></table>
 
+<p><strong>Output:</strong></p>
+
+<p>Success</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p>Error</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Password must be at least 8 characters long.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="toc_2">User Login</h2>
+
+<p><strong>Route:</strong> <em>POST /auth/local</em></p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>the user&#39;s unique name OR the user&#39;s email address</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the user&#39;s password</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>&quot;local&quot;</td>
+</tr>
+<tr>
+<td>_csrf</td>
+<td>authentication token (see Authentication Tokens section</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p>Error</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Incorrect login information.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
       </section>
       <aside>
         <ul>

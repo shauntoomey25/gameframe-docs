@@ -14,9 +14,11 @@ permalink: "api.html"
 
 **Output:**
 
-    {
-        "_csrf": "5T0pzcHqfyC8b403okqnZDdtIfA10VEBOx64U=" 
-    }
+```js
+{
+  "_csrf": "5T0pzcHqfyC8b403okqnZDdtIfA10VEBOx64U=" 
+}
+```
 
 **Notes:**
 
@@ -25,12 +27,71 @@ Before doing anything else with the Game Frame server API, the client must reque
 1. Include the token as a POST parameter titled "_csrf" (same format as the output above).
 2. Include the token as a request header titled "X-CSRFToken".
 
-For more information, see [here](http://sailsjs.org/#!documentation/config.csrf).
+In the other API calls on this page, the CSRF token is included as a parameter as a reminder of its necessity, but remember that it can be sent as a header alternatively. For more information, see [here](http://sailsjs.org/#!documentation/config.csrf).
 
 ## User Registration
 
-Coming Soon
+**Route:** _POST /auth/local/register_
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| username | the user's unique name |
+| email | the user's email address |
+| password | the user's password |
+| provider | "local" |
+| _csrf | authentication token (see Authentication Tokens section |
+
+**Output:**
+
+Success
+
+```js
+{
+  status: "success",
+  message: null 
+}
+```
+
+Error
+
+```js
+{
+  status: "error",
+  message: "Password must be at least 8 characters long." 
+}
+```
 
 ## User Login
 
-Coming Soon
+**Route:** _POST /auth/local_
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| username | the user's unique name OR the user's email address |
+| password | the user's password |
+| provider | "local" |
+| _csrf | authentication token (see Authentication Tokens section |
+
+**Output:**
+
+Success
+
+```js
+{
+  status: "success",
+  message: null 
+}
+```
+
+Error
+
+```js
+{
+  status: "error",
+  message: "Incorrect login information." 
+}
+```
