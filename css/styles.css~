@@ -330,6 +330,10 @@ nav a.active {
   color: #353535;
 }
 
+.title {
+  margin:0px 0px 10px 0px;
+}
+
 
 @media print, screen and (max-width: 960px), (max-height: 500px)  {
   

@@ -79,7 +79,33 @@
 
       </header>
       <section class="main">
-        <h2>Coming Soon</h2>
+        <h2>Authentication Tokens</h2>
+
+<p><strong>Route:</strong> <em>GET /csrfToken</em></p>
+
+<p><strong>Input:</strong> None</p>
+
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">{
+    &quot;_csrf&quot;: &quot;5T0pzcHqfyC8b403okqnZDdtIfA10VEBOx64U=&quot; 
+}
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+
+<p>Before doing anything else with the Game Frame server API, the client must request a CSRF (cross-site request forgery) token. This is a safety measure to protect our users from malicious websites. Every request sent to the server that modifies the state of the server (i.e. POST, PUT, DELETE, etc. requests) requires that this CSRF token also be sent. There are two methods of including the CSRF token:</p>
+
+<ol>
+<li>Include the token as a POST parameter titled &quot;_csrf&quot; (same format as the output above).</li>
+<li>Include the token as a request header titled &quot;X-CSRFToken&quot;.</li>
+</ol>
+
+<h2>User Registration</h2>
+
+<p>Coming Soon</p>
+
+<h2>User Login</h2>
+
+<p>Coming Soon</p>
 
       </section>
       <aside>
