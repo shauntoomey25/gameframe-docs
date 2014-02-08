@@ -23,17 +23,18 @@ Usage:
 {% if site.JB.pages_list.provider == "custom" %}
   {% include custom/pages_list %}
 {% else %}
-  {% for node in pages_list %}
-    {% if node.title != null %}
-      {% if group == null or group == node.group %}
-      	{% if page.url == node.url %}
-        <a href="./" class="active">{{node.title}}</a>
-      	{% else %}
-        <a href=".{{node.url}}">{{node.title}}</a>
-      	{% endif %}
-      {% endif %}
+
+  {% assign sorted_pages = pages_list | sort:"name" %}
+  {% for node in sorted_pages %}
+    {% if group == null or group == node.group %}
+    	{% if page.url == node.url %}
+        <a href="./" class="active">{{node.navlink}}</a>
+    	{% else %}
+        <a href=".{{node.url}}">{{node.name}}</a>
+    	{% endif %}
     {% endif %}
   {% endfor %}
+
 {% endif %}
 {% assign pages_list = nil %}
 {% assign group = nil %}
