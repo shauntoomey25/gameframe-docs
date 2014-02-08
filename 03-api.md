@@ -25,6 +25,8 @@ Before doing anything else with the Game Frame server API, the client must reque
 1. Include the token as a POST parameter titled "_csrf" (same format as the output above).
 2. Include the token as a request header titled "X-CSRFToken".
 
+For more information, see [here](http://sailsjs.org/#!documentation/config.csrf).
+
 ## User Registration
 
 Coming Soon
