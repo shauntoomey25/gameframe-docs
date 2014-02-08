@@ -27,11 +27,22 @@ Usage:
   {% assign sorted_pages = pages_list | sort:"name" %}
   {% for node in sorted_pages %}
     {% if group == null or group == node.group %}
-    	{% if page.url == node.url %}
-        <a href="./" class="active">{{node.navlink}}</a>
+
+    	{% if node.navlink == "Home" %}
+        {% if page.url == node.url %}
+          <a href="./" class="active">{{node.navlink}}</a>
+    	  {% else %}
+          <a href="./">{{node.navlink}}</a>
+    	  {% endif %}
+
     	{% else %}
-        <a href=".{{node.url}}">{{node.navlink}}</a>
+        {% if page.url == node.url %}
+          <a href=".{{node.url}}" class="active">{{node.navlink}}</a>
+    	  {% else %}
+          <a href=".{{node.url}}">{{node.navlink}}</a>
+    	  {% endif %}
     	{% endif %}
+
     {% endif %}
   {% endfor %}
 
