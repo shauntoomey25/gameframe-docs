@@ -40,7 +40,6 @@ In the other API calls on this page, the CSRF token is included as a parameter a
 | username | the user's unique name |
 | email | the user's email address |
 | password | the user's password |
-| provider | "local" |
 | _csrf | authentication token (see Authentication Tokens section |
 
 **Output:**
@@ -73,7 +72,6 @@ Error
 | ---- | ------ |
 | username | the user's unique name OR the user's email address |
 | password | the user's password |
-| provider | "local" |
 | _csrf | authentication token (see Authentication Tokens section |
 
 **Output:**
