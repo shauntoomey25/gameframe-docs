@@ -70,9 +70,9 @@ Error
 
 | Keys | Values |
 | ---- | ------ |
-| username | the user's unique name OR the user's email address |
+| identifier | the user's username OR email address |
 | password | the user's password |
-| _csrf | authentication token (see Authentication Tokens section |
+| _csrf | authentication token (see Authentication Tokens section) |
 
 **Output:**
 
@@ -90,6 +90,6 @@ Error
 ```js
 {
   status: "error",
-  message: "Incorrect login information." 
+  message: "Incorrect password." 
 }
 ```
