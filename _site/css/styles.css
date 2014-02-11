@@ -382,6 +382,13 @@ nav a.active {
   pre, code {
     word-wrap:normal;
   }
+
+  nav {
+    float: right;
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
 }
 
 @media print, screen and (max-width: 480px) {
