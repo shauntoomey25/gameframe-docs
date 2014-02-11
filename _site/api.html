@@ -75,6 +75,7 @@
           
           <h2>multiplayer board/card game framework</h2>
           
+          <div id="toc"></div>
         </hgroup>
 
       </header>
@@ -96,7 +97,7 @@
 
 <ol>
 <li>Include the token as a POST parameter titled &quot;_csrf&quot; (same format as the output above).</li>
-<li>Include the token as a request header titled &quot;X-CSRFToken&quot;.</li>
+<li>Include the token as a request header titled &quot;X-CSRF-Token&quot;.</li>
 </ol>
 
 <p>In the other API calls on this page, the CSRF token is included as a parameter as a reminder of its necessity, but remember that it can be sent as a header alternatively. For more information, see <a href="http://sailsjs.org/#!documentation/config.csrf">here</a>.</p>
@@ -124,10 +125,6 @@
 <tr>
 <td>password</td>
 <td>the user&#39;s password</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>&quot;local&quot;</td>
 </tr>
 <tr>
 <td>_csrf</td>
@@ -162,20 +159,16 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>username</td>
-<td>the user&#39;s unique name OR the user&#39;s email address</td>
+<td>identifier</td>
+<td>the user&#39;s username OR email address</td>
 </tr>
 <tr>
 <td>password</td>
 <td>the user&#39;s password</td>
 </tr>
 <tr>
-<td>provider</td>
-<td>&quot;local&quot;</td>
-</tr>
-<tr>
 <td>_csrf</td>
-<td>authentication token (see Authentication Tokens section</td>
+<td>authentication token (see Authentication Tokens section)</td>
 </tr>
 </tbody></table>
 
@@ -190,7 +183,7 @@
 <p>Error</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
-  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Incorrect login information.&quot;</span> 
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Incorrect password.&quot;</span> 
 <span class="p">}</span>
 </code></pre></div>
       </section>
@@ -209,5 +202,6 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="./js/scale.fix.js"></script>
+    <script src="./js/table-of-contents.js"></script>
   </body>
 </html>
