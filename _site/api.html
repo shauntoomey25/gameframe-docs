@@ -148,7 +148,7 @@
 </code></pre></div>
 <h2 id="toc_2">User Login</h2>
 
-<p><strong>Route:</strong> <em>POST /auth/local</em></p>
+<p><strong>Route:</strong> <em>POST /auth/local/login</em></p>
 
 <p><strong>Input:</strong></p>
 
@@ -186,6 +186,24 @@
   <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Incorrect password.&quot;</span> 
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="toc_3">User Logout</h2>
+
+<p><strong>Route:</strong> <em>GET /auth/local/logout</em></p>
+
+<p><strong>Input:</strong> None</p>
+
+<p><strong>Output:</strong></p>
+
+<p>Success</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+
+<p>There are currently no error messages for logging out. The &#39;success&#39; message guarantees that the current user is logged out (does not matter whether the current user was currently logged in or not when the logout request was made).</p>
+
       </section>
       <aside>
         <ul>
