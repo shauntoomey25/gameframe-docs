@@ -25,7 +25,14 @@ Success
 ```js
 {
   status: "success",
-  message: null 
+  message: null .
+  user: {
+    createdAt: "2014-02-21T06:00:08.220Z",
+    email: "user@email.com",
+    id: "5306eb68def6573a07d7ba13",
+    updatedAt: "2014-02-21T06:00:08.221Z",
+    username: "user"
+  }
 }
 ```
 
@@ -56,7 +63,14 @@ Success
 ```js
 {
   status: "success",
-  message: null 
+  message: null,
+  user: {
+    createdAt: "2014-02-21T06:00:08.220Z",
+    email: "user@email.com",
+    id: "5306eb68def6573a07d7ba13",
+    updatedAt: "2014-02-21T06:00:08.221Z",
+    username: "user"
+  }
 }
 ```
 
