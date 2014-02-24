@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <title>Home | Game Frame</title>
+    <title>Models | Game Frame</title>
 
     
     
@@ -33,7 +33,7 @@
 
     	
         
-          <a href="./" class="active">Home</a>
+          <a href="./">Home</a>
     	  
 
     	
@@ -64,7 +64,7 @@
 
     	
         
-          <a href="./models.html">Models</a>
+          <a href="./models.html" class="active">Models</a>
     	  
     	
 
@@ -90,24 +90,91 @@
 
       </header>
       <section class="main">
-        <h2 id="toc_0">Welcome</h2>
+        <p>Notes: Our models are still rapidly evolving. The attributes listed below are the most stable ones (i.e. they probably won&#39;t change). Models may gain more attributes as needed.</p>
 
-<p>Game Frame is a card/board game framework designed to simplify game development for developers. With our framework, any developer will be able to easily build a high-quality board or card game.</p>
+<hr>
 
-<p>Here is a list of just some of Game Frame&#39;s features:</p>
+<h2 id="toc_0">User</h2>
 
-<ul>
-<li>simple user registration and login</li>
-<li>ability to list all joinable games</li>
-<li>waiting rooms for users to join before a game starts</li>
-<li>user-customizable game settings, synced across the network</li>
-<li>real-time events pushed across the network</li>
-<li>ability to send the &quot;common view&quot; (i.e. the board in a Monopoly) for display on a Chromecast-connected TV</li>
-<li>cross-platform play (our interface will be supported on both the web and Android devices)</li>
-<li>user messaging system</li>
-</ul>
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the user&#39;s unique user id</td>
+</tr>
+<tr>
+<td>username</td>
+<td>the user&#39;s unique name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>the user&#39;s email address</td>
+</tr>
+</tbody></table>
 
-<p>While it is still under closed development, we will be open-sourcing it in the coming months. Stay tuned!</p>
+<hr>
+
+<h2 id="toc_1">Game</h2>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the unique game id</td>
+</tr>
+<tr>
+<td>title</td>
+<td>the game&#39;s title</td>
+</tr>
+<tr>
+<td>developer</td>
+<td>the game&#39;s developer</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="toc_2">Lobby</h2>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the unique lobby id</td>
+</tr>
+<tr>
+<td>game</td>
+<td>id of the game represented by the lobby</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>id of the user who created the lobby</td>
+</tr>
+<tr>
+<td>minNumPlayers</td>
+<td>integer representing the minimum number of players allowed in the lobby</td>
+</tr>
+<tr>
+<td>maxNumPlayers</td>
+<td>integer representing the maximum number of players allowed in the lobby</td>
+</tr>
+<tr>
+<td>users</td>
+<td>an array of User models representing the current users in the lobby</td>
+</tr>
+</tbody></table>
 
       </section>
       <aside>

@@ -60,6 +60,16 @@
 
     
   
+    
+
+    	
+        
+          <a href="./models.html">Models</a>
+    	  
+    	
+
+    
+  
 
 
 
@@ -80,7 +90,45 @@
 
       </header>
       <section class="main">
-        <h2 id="toc_0">Coming Soon</h2>
+        <h2 id="toc_0">Login</h2>
+
+<p><strong>Method:</strong> AuthenticationHelper.login()</p>
+
+<p><strong>Parameters:</strong> String identifier, String password</p>
+
+<p><strong>Return:</strong> None</p>
+
+<p><strong>Action:</strong> Attempts to log in the user on a background thread. If the AuthenticationHelper instance has had its success listener set using the AuthenticationHelper.setSuccessListener() method, the appropriate method will be call upon success or failure.</p>
+
+<h2 id="toc_1">Register</h2>
+
+<p><strong>Method:</strong> AuthenticationHelper.register()</p>
+
+<p><strong>Parameters:</strong> String username, String emailAddress, String password</p>
+
+<p><strong>Return:</strong> None</p>
+
+<p><strong>Action:</strong> Attempts to register a new user on a background thread. If the AuthenticationHelper instance has had its success listener set using the AuthenticationHelper.setSuccessListener() method, the appropriate method will be call upon success or failure. If successful, the user will be logged in- no additional login is required.</p>
+
+<h2 id="toc_2">Show Default Error Messages</h2>
+
+<p><strong>Method:</strong> PreferenceManager.setShowDefaultErrorMessages()</p>
+
+<p><strong>Parameters:</strong> None</p>
+
+<p><strong>Return:</strong> None</p>
+
+<p><strong>Action:</strong> If set to true, default error messages for web calls will be displayed before any onFailure() method is called.</p>
+
+<h2 id="toc_3">Set Server URL</h2>
+
+<p><strong>Method:</strong> PreferenceManager.setServerURL()</p>
+
+<p><strong>Parameters:</strong> String serverURL</p>
+
+<p><strong>Return:</strong> None</p>
+
+<p><strong>Action:</strong> Allows the base URL of all web calls to be set programmactically. Defaults to &quot;<a href="http://gameframe.dyndns.org">http://gameframe.dyndns.org</a>&quot;.</p>
 
       </section>
       <aside>

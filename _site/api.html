@@ -60,6 +60,16 @@
 
     
   
+    
+
+    	
+        
+          <a href="./models.html">Models</a>
+    	  
+    	
+
+    
+  
 
 
 
@@ -80,31 +90,11 @@
 
       </header>
       <section class="main">
-        <h2 id="toc_0">Authentication Tokens</h2>
-
-<p><strong>Route:</strong> <em>GET /csrfToken</em></p>
-
-<p><strong>Input:</strong> None</p>
-
-<p><strong>Output:</strong></p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
-  <span class="s2">&quot;_csrf&quot;</span><span class="o">:</span> <span class="s2">&quot;5T0pzcHqfyC8b403okqnZDdtIfA10VEBOx64U=&quot;</span> 
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Notes:</strong></p>
-
-<p>Before doing anything else with the Game Frame server API, the client must request a CSRF (cross-site request forgery) token. This is a safety measure to protect our users from malicious websites. Every request sent to the server that modifies the state of the server (i.e. POST, PUT, DELETE, etc. requests) requires that this CSRF token also be sent. There are two methods of including the CSRF token:</p>
-
-<ol>
-<li>Include the token as a POST parameter titled &quot;_csrf&quot; (same format as the output above).</li>
-<li>Include the token as a request header titled &quot;X-CSRF-Token&quot;.</li>
-</ol>
-
-<p>In the other API calls on this page, the CSRF token is included as a parameter as a reminder of its necessity, but remember that it can be sent as a header alternatively. For more information, see <a href="http://sailsjs.org/#!documentation/config.csrf">here</a>.</p>
-
-<h2 id="toc_1">User Registration</h2>
+        <h2 id="toc_0">User Registration</h2>
 
 <p><strong>Route:</strong> <em>POST /auth/local/register</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
 
 <p><strong>Input:</strong></p>
 
@@ -126,29 +116,36 @@
 <td>password</td>
 <td>the user&#39;s password</td>
 </tr>
-<tr>
-<td>_csrf</td>
-<td>authentication token (see Authentication Tokens section</td>
-</tr>
 </tbody></table>
 
 <p><strong>Output:</strong></p>
 
-<p>Success</p>
+<p>Success:</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> 
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> <span class="p">.</span>
+  <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Error</p>
+<p>Error:</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
   <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Password must be at least 8 characters long.&quot;</span> 
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="toc_2">User Login</h2>
+<hr>
+
+<h2 id="toc_1">User Login</h2>
 
 <p><strong>Route:</strong> <em>POST /auth/local/login</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
 
 <p><strong>Input:</strong></p>
 
@@ -166,35 +163,42 @@
 <td>password</td>
 <td>the user&#39;s password</td>
 </tr>
-<tr>
-<td>_csrf</td>
-<td>authentication token (see Authentication Tokens section)</td>
-</tr>
 </tbody></table>
 
 <p><strong>Output:</strong></p>
 
-<p>Success</p>
+<p>Success: a User model</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> 
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Error</p>
+<p>Error:</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
   <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Incorrect password.&quot;</span> 
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="toc_3">User Logout</h2>
+<hr>
+
+<h2 id="toc_2">User Logout</h2>
 
 <p><strong>Route:</strong> <em>GET /auth/local/logout</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
 
 <p><strong>Input:</strong> None</p>
 
 <p><strong>Output:</strong></p>
 
-<p>Success</p>
+<p>Success:</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
   <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> 
@@ -203,6 +207,320 @@
 <p><strong>Notes:</strong></p>
 
 <p>There are currently no error messages for logging out. The &#39;success&#39; message guarantees that the current user is logged out (does not matter whether the current user was currently logged in or not when the logout request was made).</p>
+
+<hr>
+
+<h2 id="toc_3">Fetch Games</h2>
+
+<p><strong>Route:</strong> <em>GET /game</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong> None</p>
+
+<p><strong>Output:</strong></p>
+
+<p>Success:  an array of Game models</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">[{</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;com.gameframe.poker&quot;</span><span class="p">,</span>
+  <span class="nx">developer</span><span class="o">:</span> <span class="s2">&quot;Game Frame Studios&quot;</span>
+<span class="p">},</span> <span class="p">...</span> <span class="p">]</span>
+</code></pre></div>
+<p>Error</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+
+<h2 id="toc_4">Fetch Lobbies</h2>
+
+<p><strong>Route:</strong> <em>POST /game/fetchLobbies</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the game to fetch lobbies from</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success:  an array of Lobby models, each containing an array of User models</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">[{</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
+  <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
+  <span class="p">},</span> <span class="p">...]</span>
+<span class="p">},</span> <span class="p">...</span> <span class="p">]</span>
+</code></pre></div>
+<p>Error</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Socket Messages:</strong></p>
+
+<p>on: &quot;game&quot;
+verb: &quot;messaged&quot;</p>
+
+<p>event: &quot;lobbyAdded&quot;
+data: a Lobby model, which contains an array of User models</p>
+
+<p>event: &quot;lobbyRemoved&quot;
+data: id of the removed Lobby</p>
+
+<p><strong>Notes:</strong></p>
+
+<p>Must make the request using sockets to receive socket messages.</p>
+
+<hr>
+
+<h2 id="toc_5">Unsubscribe from Game Lobbies</h2>
+
+<p><strong>Route:</strong> <em>POST /game/unsubscribe</em></p>
+
+<p><strong>Connection Type:</strong> Sockets only</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the game to unsubscribe from</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Error:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Socket Messages:</strong></p>
+
+<p>No longer receive the &quot;lobbyAdded&quot; or &quot;lobbyRemoved&quot; events while listening on &quot;game&quot; with verb &quot;messaged&quot;.</p>
+
+<hr>
+
+<h2 id="toc_6">Create Lobby</h2>
+
+<p><strong>Route:</strong> <em>POST /lobby/create</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the game to create a lobby for</td>
+</tr>
+<tr>
+<td>minNumPlayers</td>
+<td>minimum number of players in the lobby before the game can start</td>
+</tr>
+<tr>
+<td>maxNumPlayers</td>
+<td>maximum number of players that can be in the lobby</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success: a Lobby model, which contains an array of User models</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
+  <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
+  <span class="p">},</span> <span class="p">...]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Error:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Socket Messages:</strong></p>
+
+<p>on: &quot;lobby&quot;
+verb: &quot;messaged&quot;</p>
+
+<p>event: &quot;userAdded&quot;
+data: a User model for the newly-joined user</p>
+
+<p>event: &quot;userRemoved&quot;
+data: id of the removed user</p>
+
+<p><strong>Notes:</strong></p>
+
+<p>Must make the request using sockets to receive socket messages.</p>
+
+<hr>
+
+<h2 id="toc_7">Join Lobby</h2>
+
+<p><strong>Route:</strong> <em>POST /lobby/join</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the lobby to join</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success: a Lobby model, which contains an array of User models</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
+  <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
+  <span class="p">},</span> <span class="p">...]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Error:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Socket Messages:</strong></p>
+
+<p>on: &quot;lobby&quot;
+verb: &quot;messaged&quot;</p>
+
+<p>event: &quot;userAdded&quot;
+data: a User model for the newly-joined user</p>
+
+<p>event: &quot;userRemoved&quot;
+data: id of the removed user</p>
+
+<p><strong>Notes:</strong></p>
+
+<p>Must make the request using sockets to receive socket messages.</p>
+
+<hr>
+
+<h2 id="toc_8">Leave Lobby</h2>
+
+<p><strong>Route:</strong> <em>POST /lobby/leave</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the lobby to leave</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success: a Lobby model, which contains an array of User models</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
+  <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
+  <span class="p">},</span> <span class="p">...]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Error:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Socket Messages:</strong></p>
+
+<p>No longer receive the &quot;lobbyAdded&quot; or &quot;lobbyRemoved&quot; events while listening on &quot;game&quot; with verb &quot;messaged&quot;.</p>
 
       </section>
       <aside>
