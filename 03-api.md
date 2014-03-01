@@ -257,7 +257,7 @@ No longer receive the "lobbyAdded" or "lobbyRemoved" events while listening on "
 
 | Keys | Values |
 | ---- | ------ |
-| id | id of the game to create a lobby for |
+| game | game id of the game to create a lobby for |
 | name | string representing the user-given name for a lobby (does not have to be unique) |
 | minNumPlayers | minimum number of players in the lobby before the game can start |
 | maxNumPlayers | maximum number of players that can be in the lobby |
