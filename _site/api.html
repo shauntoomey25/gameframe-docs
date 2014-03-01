@@ -260,6 +260,7 @@
 <p>Success:  an array of Lobby models, each containing an array of User models</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">[{</span>
   <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Awesome Poker Lobby&quot;</span><span class="p">,</span>
   <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -357,6 +358,10 @@ data: id of the removed Lobby</p>
 <td>id of the game to create a lobby for</td>
 </tr>
 <tr>
+<td>name</td>
+<td>string representing the user-given name for a lobby (does not have to be unique)</td>
+</tr>
+<tr>
 <td>minNumPlayers</td>
 <td>minimum number of players in the lobby before the game can start</td>
 </tr>
@@ -371,6 +376,7 @@ data: id of the removed Lobby</p>
 <p>Success: a Lobby model, which contains an array of User models</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Awesome Poker Lobby&quot;</span><span class="p">,</span>
   <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -434,6 +440,7 @@ data: id of the removed user</p>
 <p>Success: a Lobby model, which contains an array of User models</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Awesome Poker Lobby&quot;</span><span class="p">,</span>
   <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -497,6 +504,7 @@ data: id of the removed user</p>
 <p>Success: a Lobby model, which contains an array of User models</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
   <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Awesome Poker Lobby&quot;</span><span class="p">,</span>
   <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>

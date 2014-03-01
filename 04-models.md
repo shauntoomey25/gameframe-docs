@@ -35,6 +35,7 @@ Notes: Our models are still rapidly evolving. The attributes listed below are th
 | Keys | Description |
 | ---- | ------ |
 | id | the unique lobby id |
+| name | the user-given name for a lobby (does not have to be unique) |
 | game | id of the game represented by the lobby |
 | owner | id of the user who created the lobby |
 | minNumPlayers | integer representing the minimum number of players allowed in the lobby |

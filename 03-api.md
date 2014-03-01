@@ -166,6 +166,7 @@ Success:  an array of Lobby models, each containing an array of User models
 ```js
 [{
   createdAt: "2014-02-24T12:14:50.000Z",
+  name: "Awesome Poker Lobby",
   game: "530b1f08f01ac484dc981c3d",
   id: "530b3d5cceacfc293ad9ce1f",
   maxNumPlayers: 10,
@@ -257,6 +258,7 @@ No longer receive the "lobbyAdded" or "lobbyRemoved" events while listening on "
 | Keys | Values |
 | ---- | ------ |
 | id | id of the game to create a lobby for |
+| name | string representing the user-given name for a lobby (does not have to be unique) |
 | minNumPlayers | minimum number of players in the lobby before the game can start |
 | maxNumPlayers | maximum number of players that can be in the lobby |
 
@@ -267,6 +269,7 @@ Success: a Lobby model, which contains an array of User models
 ```js
 {
   createdAt: "2014-02-24T12:14:50.000Z",
+  name: "Awesome Poker Lobby",
   game: "530b1f08f01ac484dc981c3d",
   id: "530b3d5cceacfc293ad9ce1f",
   maxNumPlayers: 10,
@@ -328,6 +331,7 @@ Success: a Lobby model, which contains an array of User models
 ```js
 {
   createdAt: "2014-02-24T12:14:50.000Z",
+  name: "Awesome Poker Lobby",
   game: "530b1f08f01ac484dc981c3d",
   id: "530b3d5cceacfc293ad9ce1f",
   maxNumPlayers: 10,
@@ -389,6 +393,7 @@ Success: a Lobby model, which contains an array of User models
 ```js
 {
   createdAt: "2014-02-24T12:14:50.000Z",
+  name: "Awesome Poker Lobby",
   game: "530b1f08f01ac484dc981c3d",
   id: "530b3d5cceacfc293ad9ce1f",
   maxNumPlayers: 10,
