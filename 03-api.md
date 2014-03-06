@@ -298,6 +298,9 @@ data: a User model for the newly-joined user
 event: "userRemoved"
 data: id of the removed user
 
+event: "hostChanged"
+data: id of the new host user
+
 **Notes:**
 
 Must make the request using sockets to receive socket messages.
@@ -359,6 +362,9 @@ data: a User model for the newly-joined user
 
 event: "userRemoved"
 data: id of the removed user
+
+event: "hostChanged"
+data: id of the new host user
 
 **Notes:**
 
