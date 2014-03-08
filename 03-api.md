@@ -301,6 +301,12 @@ data: id of the removed user
 event: "hostChanged"
 data: id of the new host user
 
+event: "newUserMessage"
+data: a Message model for a user-sent message (contains a User ID in the "from" attribute)
+
+event: "newSystemMessage"
+data: a Message model for a system-sent message (no "from" attribute)
+
 **Notes:**
 
 Must make the request using sockets to receive socket messages.
@@ -366,6 +372,12 @@ data: id of the removed user
 event: "hostChanged"
 data: id of the new host user
 
+event: "newUserMessage"
+data: a Message model for a user-sent message (contains a User ID in the "from" attribute)
+
+event: "newSystemMessage"
+data: a Message model for a system-sent message (no "from" attribute)
+
 **Notes:**
 
 Must make the request using sockets to receive socket messages.
@@ -420,3 +432,41 @@ Error:
 **Socket Messages:**
 
 No longer receive the "lobbyAdded" or "lobbyRemoved" events while listening on "game" with verb "messaged".
+
+--------------------------------------------------
+
+## Post Message
+
+**Route:** _POST /lobby/postMessage_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| lobby | id of the lobby to leave |
+| content | message text |
+
+**Output:**
+
+Success: a Message model
+
+```js
+{
+  content: "Hello, World!",
+  createdAt: "2014-02-24T12:14:50.000Z",
+  id: "530b3d5cceacfc293ad9ce1f",
+  from: "530b394026b8fd163957e8ae",
+  updatedAt: "2014-02-24T12:38:52.885Z",
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```

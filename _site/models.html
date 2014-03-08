@@ -90,7 +90,7 @@
 
       </header>
       <section class="main">
-        <p>Notes: Our models are still rapidly evolving. The attributes listed below are the most stable ones (i.e. they probably won&#39;t change). Models may gain more attributes as needed.</p>
+        <p>Notes: Our models are still rapidly evolving. The attributes listed below are the most stable ones (i.e. they probably won&#39;t change). Models may gain more attributes as needed. Additionally</p>
 
 <hr>
 
@@ -113,6 +113,14 @@
 <tr>
 <td>email</td>
 <td>the user&#39;s email address</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the User was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the User was last updated</td>
 </tr>
 </tbody></table>
 
@@ -137,6 +145,14 @@
 <tr>
 <td>developer</td>
 <td>the game&#39;s developer</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the Game was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the Game was last updated</td>
 </tr>
 </tbody></table>
 
@@ -177,6 +193,50 @@
 <tr>
 <td>users</td>
 <td>an array of User models representing the current users in the lobby</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the Lobby was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the Lobby was last updated</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="toc_3">Message</h2>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the unique message id</td>
+</tr>
+<tr>
+<td>lobby</td>
+<td>the unique lobby id associated with the message</td>
+</tr>
+<tr>
+<td>content</td>
+<td>the text of the message</td>
+</tr>
+<tr>
+<td>from</td>
+<td>user ID of the sender of the message (undefined if it is a system message)</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the Message was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the Message was last updated</td>
 </tr>
 </tbody></table>
 

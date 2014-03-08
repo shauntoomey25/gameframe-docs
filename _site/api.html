@@ -122,15 +122,11 @@
 
 <p>Success:</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
-  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span> <span class="p">.</span>
-  <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
-    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
-    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
-    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
-  <span class="p">}</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Error:</p>
@@ -169,15 +165,11 @@
 
 <p>Success: a User model</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
-  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
-    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
-    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
-    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
-  <span class="p">}</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Error:</p>
@@ -354,8 +346,8 @@ data: id of the removed Lobby</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>id of the game to create a lobby for</td>
+<td>game</td>
+<td>game id of the game to create a lobby for</td>
 </tr>
 <tr>
 <td>name</td>
@@ -408,6 +400,15 @@ data: a User model for the newly-joined user</p>
 
 <p>event: &quot;userRemoved&quot;
 data: id of the removed user</p>
+
+<p>event: &quot;hostChanged&quot;
+data: id of the new host user</p>
+
+<p>event: &quot;newUserMessage&quot;
+data: a Message model for a user-sent message (contains a User ID in the &quot;from&quot; attribute)</p>
+
+<p>event: &quot;newSystemMessage&quot;
+data: a Message model for a system-sent message (no &quot;from&quot; attribute)</p>
 
 <p><strong>Notes:</strong></p>
 
@@ -473,6 +474,15 @@ data: a User model for the newly-joined user</p>
 <p>event: &quot;userRemoved&quot;
 data: id of the removed user</p>
 
+<p>event: &quot;hostChanged&quot;
+data: id of the new host user</p>
+
+<p>event: &quot;newUserMessage&quot;
+data: a Message model for a user-sent message (contains a User ID in the &quot;from&quot; attribute)</p>
+
+<p>event: &quot;newSystemMessage&quot;
+data: a Message model for a system-sent message (no &quot;from&quot; attribute)</p>
+
 <p><strong>Notes:</strong></p>
 
 <p>Must make the request using sockets to receive socket messages.</p>
@@ -530,6 +540,49 @@ data: id of the removed user</p>
 
 <p>No longer receive the &quot;lobbyAdded&quot; or &quot;lobbyRemoved&quot; events while listening on &quot;game&quot; with verb &quot;messaged&quot;.</p>
 
+<hr>
+
+<h2 id="toc_9">Post Message</h2>
+
+<p><strong>Route:</strong> <em>POST /lobby/postMessage</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lobby</td>
+<td>id of the lobby to leave</td>
+</tr>
+<tr>
+<td>content</td>
+<td>message text</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success: a Message model</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">content</span><span class="o">:</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span>
+  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
+  <span class="nx">from</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Error:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
       </section>
       <aside>
         <ul>
