@@ -149,7 +149,7 @@ Error
 
 | Keys | Values |
 | ---- | ------ |
-| id | id of the game to fetch lobbies from |
+| game | id of the game to fetch lobbies from |
 
 **Output:**
 
@@ -211,7 +211,7 @@ Must make the request using sockets to receive socket messages.
 
 | Keys | Values |
 | ---- | ------ |
-| id | id of the game to unsubscribe from |
+| game | id of the game to unsubscribe from |
 
 **Output:**
 
@@ -323,7 +323,7 @@ Must make the request using sockets to receive socket messages.
 
 | Keys | Values |
 | ---- | ------ |
-| id | id of the lobby to join |
+| lobby | id of the lobby to join |
 
 **Output:**
 
@@ -394,7 +394,7 @@ Must make the request using sockets to receive socket messages.
 
 | Keys | Values |
 | ---- | ------ |
-| id | id of the lobby to leave |
+| lobby | id of the lobby to leave |
 
 **Output:**
 
