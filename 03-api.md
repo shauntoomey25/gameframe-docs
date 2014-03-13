@@ -398,26 +398,10 @@ Must make the request using sockets to receive socket messages.
 
 **Output:**
 
-Success: a Lobby model, which contains an array of User models
+Success: the id of the Lobby removed
 
 ```js
-{
-  createdAt: "2014-02-24T12:14:50.000Z",
-  name: "Awesome Poker Lobby",
-  game: "530b1f08f01ac484dc981c3d",
-  id: "530b3d5cceacfc293ad9ce1f",
-  maxNumPlayers: 10,
-  minNumPlayers: 5,
-  owner: "530b394026b8fd163957e8ae",
-  updatedAt: "2014-02-24T12:38:52.885Z",
-  users: [{
-    createdAt: "2014-02-21T06:00:08.220Z",
-    email: "user@email.com",
-    id: "5306eb68def6573a07d7ba13",
-    updatedAt: "2014-02-21T06:00:08.221Z",
-    username: "user"
-  }, ...]
-}
+"530b3d5cceacfc293ad9ce1f"
 ```
 
 Error:
