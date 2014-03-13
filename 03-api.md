@@ -163,7 +163,7 @@ Success:  an array of Lobby models, each containing an array of User models
   id: "530b3d5cceacfc293ad9ce1f",
   maxNumPlayers: 10,
   minNumPlayers: 5,
-  owner: "530b394026b8fd163957e8ae",
+  host: "530b394026b8fd163957e8ae",
   updatedAt: "2014-02-24T12:38:52.885Z",
   users: [{
     createdAt: "2014-02-21T06:00:08.220Z",
