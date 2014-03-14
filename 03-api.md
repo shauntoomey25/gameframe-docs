@@ -165,6 +165,7 @@ Success:  an array of Lobby models, each containing an array of User models
   minNumPlayers: 5,
   host: "530b394026b8fd163957e8ae",
   updatedAt: "2014-02-24T12:38:52.885Z",
+  status: 'waitingForPlayersToJoin',
   users: [{
     createdAt: "2014-02-21T06:00:08.220Z",
     email: "user@email.com",
@@ -268,6 +269,7 @@ Success: a Lobby model, which contains an array of User models
   minNumPlayers: 5,
   host: "530b394026b8fd163957e8ae",
   updatedAt: "2014-02-24T12:38:52.885Z",
+  status: 'waitingForPlayersToJoin',
   users: [{
     createdAt: "2014-02-21T06:00:08.220Z",
     email: "user@email.com",
@@ -339,6 +341,7 @@ Success: a Lobby model, which contains an array of User models
   minNumPlayers: 5,
   host: "530b394026b8fd163957e8ae",
   updatedAt: "2014-02-24T12:38:52.885Z",
+  status: 'waitingForPlayersToJoin',
   users: [{
     createdAt: "2014-02-21T06:00:08.220Z",
     email: "user@email.com",

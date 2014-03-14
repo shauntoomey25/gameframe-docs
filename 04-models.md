@@ -44,6 +44,7 @@ Notes: Our models are still rapidly evolving. The attributes listed below are th
 | host | id of the user who created the lobby |
 | minNumPlayers | integer representing the minimum number of players allowed in the lobby |
 | maxNumPlayers | integer representing the maximum number of players allowed in the lobby |
+| status | either 'waitingForPlayersToJoin', 'waitingForMatchToStart', or 'inMatch' |
 | users | an array of User models representing the current users in the lobby |
 | createdAt | when the Lobby was created |
 | updatedAt | when the Lobby was last updated |
