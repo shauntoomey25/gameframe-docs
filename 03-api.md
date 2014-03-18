@@ -457,3 +457,49 @@ Error:
   message: "Error message here." 
 }
 ```
+
+--------------------------------------------------
+
+## Start Match
+
+**Route:** _POST /match/startMatch_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| lobby | id of the lobby to leave |
+
+**Output:**
+
+Success:
+
+```js
+{
+  status: "success",
+  message: null
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"
+verb: "messaged"
+
+event: "matchStarted"
+data: null
+
+**Notes:**
+
+While a Match model exists on the server, the client will not receive this information. The important models for the client are the Lobby, CommonState, and PlayerState models (the Match model just connects all these).
