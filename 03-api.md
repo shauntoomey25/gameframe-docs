@@ -187,13 +187,13 @@ Error
 
 **Socket Messages:**
 
-on: "game"
+on: "game"  
 verb: "messaged"
 
-event: "lobbyAdded"
+event: "lobbyAdded"  
 data: a Lobby model, which contains an array of User models
 
-event: "lobbyRemoved"
+event: "lobbyRemoved"  
 data: id of the removed Lobby
 
 **Notes:**
@@ -291,22 +291,22 @@ Error:
 
 **Socket Messages:**
 
-on: "lobby"
+on: "lobby"  
 verb: "messaged"
 
-event: "userAdded"
+event: "userAdded"  
 data: a User model for the newly-joined user
 
-event: "userRemoved"
+event: "userRemoved"  
 data: id of the removed user
 
-event: "hostChanged"
+event: "hostChanged"  
 data: id of the new host user
 
-event: "newUserMessage"
+event: "newUserMessage"  
 data: a Message model for a user-sent message (contains a User ID in the "from" attribute)
 
-event: "newSystemMessage"
+event: "newSystemMessage"  
 data: a Message model for a system-sent message (no "from" attribute)
 
 **Notes:**
@@ -363,22 +363,22 @@ Error:
 
 **Socket Messages:**
 
-on: "lobby"
+on: "lobby"  
 verb: "messaged"
 
-event: "userAdded"
+event: "userAdded"  
 data: a User model for the newly-joined user
 
-event: "userRemoved"
+event: "userRemoved"  
 data: id of the removed user
 
-event: "hostChanged"
+event: "hostChanged"  
 data: id of the new host user
 
-event: "newUserMessage"
+event: "newUserMessage"  
 data: a Message model for a user-sent message (contains a User ID in the "from" attribute)
 
-event: "newSystemMessage"
+event: "newSystemMessage"  
 data: a Message model for a system-sent message (no "from" attribute)
 
 **Notes:**
@@ -494,10 +494,10 @@ Error:
 
 **Socket Messages:**
 
-on: "match"
+on: "match"  
 verb: "messaged"
 
-event: "matchStarted"
+event: "matchStarted"  
 data: null
 
 **Notes:**

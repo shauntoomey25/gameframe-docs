@@ -242,7 +242,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>game</td>
 <td>id of the game to fetch lobbies from</td>
 </tr>
 </tbody></table>
@@ -257,8 +257,9 @@
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
   <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
   <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;waitingForPlayersToJoin&#39;</span><span class="p">,</span>
   <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
     <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
     <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
@@ -276,13 +277,13 @@
 </code></pre></div>
 <p><strong>Socket Messages:</strong></p>
 
-<p>on: &quot;game&quot;
+<p>on: &quot;game&quot;<br>
 verb: &quot;messaged&quot;</p>
 
-<p>event: &quot;lobbyAdded&quot;
+<p>event: &quot;lobbyAdded&quot;<br>
 data: a Lobby model, which contains an array of User models</p>
 
-<p>event: &quot;lobbyRemoved&quot;
+<p>event: &quot;lobbyRemoved&quot;<br>
 data: id of the removed Lobby</p>
 
 <p><strong>Notes:</strong></p>
@@ -306,7 +307,7 @@ data: id of the removed Lobby</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>game</td>
 <td>id of the game to unsubscribe from</td>
 </tr>
 </tbody></table>
@@ -373,8 +374,9 @@ data: id of the removed Lobby</p>
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
   <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
   <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;waitingForPlayersToJoin&#39;</span><span class="p">,</span>
   <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
     <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
     <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
@@ -392,22 +394,22 @@ data: id of the removed Lobby</p>
 </code></pre></div>
 <p><strong>Socket Messages:</strong></p>
 
-<p>on: &quot;lobby&quot;
+<p>on: &quot;lobby&quot;<br>
 verb: &quot;messaged&quot;</p>
 
-<p>event: &quot;userAdded&quot;
+<p>event: &quot;userAdded&quot;<br>
 data: a User model for the newly-joined user</p>
 
-<p>event: &quot;userRemoved&quot;
+<p>event: &quot;userRemoved&quot;<br>
 data: id of the removed user</p>
 
-<p>event: &quot;hostChanged&quot;
+<p>event: &quot;hostChanged&quot;<br>
 data: id of the new host user</p>
 
-<p>event: &quot;newUserMessage&quot;
+<p>event: &quot;newUserMessage&quot;<br>
 data: a Message model for a user-sent message (contains a User ID in the &quot;from&quot; attribute)</p>
 
-<p>event: &quot;newSystemMessage&quot;
+<p>event: &quot;newSystemMessage&quot;<br>
 data: a Message model for a system-sent message (no &quot;from&quot; attribute)</p>
 
 <p><strong>Notes:</strong></p>
@@ -431,7 +433,7 @@ data: a Message model for a system-sent message (no &quot;from&quot; attribute)<
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>lobby</td>
 <td>id of the lobby to join</td>
 </tr>
 </tbody></table>
@@ -446,8 +448,9 @@ data: a Message model for a system-sent message (no &quot;from&quot; attribute)<
   <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
   <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
   <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
   <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;waitingForPlayersToJoin&#39;</span><span class="p">,</span>
   <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
     <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
     <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
@@ -465,22 +468,22 @@ data: a Message model for a system-sent message (no &quot;from&quot; attribute)<
 </code></pre></div>
 <p><strong>Socket Messages:</strong></p>
 
-<p>on: &quot;lobby&quot;
+<p>on: &quot;lobby&quot;<br>
 verb: &quot;messaged&quot;</p>
 
-<p>event: &quot;userAdded&quot;
+<p>event: &quot;userAdded&quot;<br>
 data: a User model for the newly-joined user</p>
 
-<p>event: &quot;userRemoved&quot;
+<p>event: &quot;userRemoved&quot;<br>
 data: id of the removed user</p>
 
-<p>event: &quot;hostChanged&quot;
+<p>event: &quot;hostChanged&quot;<br>
 data: id of the new host user</p>
 
-<p>event: &quot;newUserMessage&quot;
+<p>event: &quot;newUserMessage&quot;<br>
 data: a Message model for a user-sent message (contains a User ID in the &quot;from&quot; attribute)</p>
 
-<p>event: &quot;newSystemMessage&quot;
+<p>event: &quot;newSystemMessage&quot;<br>
 data: a Message model for a system-sent message (no &quot;from&quot; attribute)</p>
 
 <p><strong>Notes:</strong></p>
@@ -504,31 +507,15 @@ data: a Message model for a system-sent message (no &quot;from&quot; attribute)<
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>lobby</td>
 <td>id of the lobby to leave</td>
 </tr>
 </tbody></table>
 
 <p><strong>Output:</strong></p>
 
-<p>Success: a Lobby model, which contains an array of User models</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
-  <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:14:50.000Z&quot;</span><span class="p">,</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Awesome Poker Lobby&quot;</span><span class="p">,</span>
-  <span class="nx">game</span><span class="o">:</span> <span class="s2">&quot;530b1f08f01ac484dc981c3d&quot;</span><span class="p">,</span>
-  <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span><span class="p">,</span>
-  <span class="nx">maxNumPlayers</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">minNumPlayers</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;530b394026b8fd163957e8ae&quot;</span><span class="p">,</span>
-  <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-24T12:38:52.885Z&quot;</span><span class="p">,</span>
-  <span class="nx">users</span><span class="o">:</span> <span class="p">[{</span>
-    <span class="nx">createdAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.220Z&quot;</span><span class="p">,</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;user@email.com&quot;</span><span class="p">,</span>
-    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;5306eb68def6573a07d7ba13&quot;</span><span class="p">,</span>
-    <span class="nx">updatedAt</span><span class="o">:</span> <span class="s2">&quot;2014-02-21T06:00:08.221Z&quot;</span><span class="p">,</span>
-    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span>
-  <span class="p">},</span> <span class="p">...]</span>
-<span class="p">}</span>
+<p>Success: the id of the Lobby removed</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="s2">&quot;530b3d5cceacfc293ad9ce1f&quot;</span>
 </code></pre></div>
 <p>Error:</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
@@ -583,6 +570,54 @@ data: a Message model for a system-sent message (no &quot;from&quot; attribute)<
   <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
 <span class="p">}</span>
 </code></pre></div>
+<hr>
+
+<h2 id="toc_10">Start Match</h2>
+
+<p><strong>Route:</strong> <em>POST /match/startMatch</em></p>
+
+<p><strong>Connection Type:</strong> HTTP Request or Sockets</p>
+
+<p><strong>Input:</strong></p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lobby</td>
+<td>id of the lobby to leave</td>
+</tr>
+</tbody></table>
+
+<p><strong>Output:</strong></p>
+
+<p>Success:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Error:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Error message here.&quot;</span> 
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Socket Messages:</strong></p>
+
+<p>on: &quot;match&quot;<br>
+verb: &quot;messaged&quot;</p>
+
+<p>event: &quot;matchStarted&quot;<br>
+data: null</p>
+
+<p><strong>Notes:</strong></p>
+
+<p>While a Match model exists on the server, the client will not receive this information. The important models for the client are the Lobby, CommonState, and PlayerState models (the Match model just connects all these).</p>
+
       </section>
       <aside>
         <ul>

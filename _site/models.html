@@ -179,7 +179,7 @@
 <td>id of the game represented by the lobby</td>
 </tr>
 <tr>
-<td>owner</td>
+<td>host</td>
 <td>id of the user who created the lobby</td>
 </tr>
 <tr>
@@ -189,6 +189,10 @@
 <tr>
 <td>maxNumPlayers</td>
 <td>integer representing the maximum number of players allowed in the lobby</td>
+</tr>
+<tr>
+<td>status</td>
+<td>either &#39;waitingForPlayersToJoin&#39;, &#39;waitingForMatchToStart&#39;, or &#39;inMatch&#39;</td>
 </tr>
 <tr>
 <td>users</td>
@@ -228,7 +232,7 @@
 </tr>
 <tr>
 <td>from</td>
-<td>user ID of the sender of the message (undefined if it is a system message)</td>
+<td>user id of the sender of the message (undefined if it is a system message)</td>
 </tr>
 <tr>
 <td>createdAt</td>
@@ -239,6 +243,130 @@
 <td>when the Message was last updated</td>
 </tr>
 </tbody></table>
+
+<hr>
+
+<h2 id="toc_4">Match</h2>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the unique match id</td>
+</tr>
+<tr>
+<td>lobby</td>
+<td>the unique lobby id associated with the match</td>
+</tr>
+<tr>
+<td>content</td>
+<td>the text of the message</td>
+</tr>
+<tr>
+<td>commonState</td>
+<td>the unique common state id associated with the match</td>
+</tr>
+<tr>
+<td>playerStates</td>
+<td>an array of player state ids associated with the match</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the Message was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the Message was last updated</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="toc_5">Common State</h2>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the unique common state id</td>
+</tr>
+<tr>
+<td>match</td>
+<td>the unique match id associated with the common state</td>
+</tr>
+<tr>
+<td>dirty</td>
+<td>an integer incremented whenever the common state is updated</td>
+</tr>
+<tr>
+<td>state</td>
+<td>JSON value representing the actual client-defined common state</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the Message was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the Message was last updated</td>
+</tr>
+</tbody></table>
+
+<p><strong>Notes</strong>:</p>
+
+<p>A player can only update the Common State if their user ID is in the match&#39;s lock attribute and they provide the last value of the common state&#39;s &quot;dirty&quot; attribute.</p>
+
+<hr>
+
+<h2 id="toc_6">Player State</h2>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the unique player state id</td>
+</tr>
+<tr>
+<td>match</td>
+<td>the unique match id associated with this player state</td>
+</tr>
+<tr>
+<td>user</td>
+<td>the unique user id associated with this player state</td>
+</tr>
+<tr>
+<td>dirty</td>
+<td>an integer incremented whenever this player state is updated</td>
+</tr>
+<tr>
+<td>state</td>
+<td>JSON value representing the actual client-defined player state</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>when the Message was created</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>when the Message was last updated</td>
+</tr>
+</tbody></table>
+
+<p><strong>Notes</strong>:</p>
+
+<p>A player can only update their own Player State, and no other players will have direct access to their Player State. The player must also provide the last value of their player state&#39;s &quot;dirty&quot; attribute.</p>
 
       </section>
       <aside>
