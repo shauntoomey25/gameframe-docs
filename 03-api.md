@@ -184,19 +184,13 @@ on: "game"
 verb: "messaged"
 
 event: "lobbyAdded"  
-data: a Lobby model, which contains an array of User models
+data: a Lobby model without the Users or Messages array
 
 event: "lobbyRemoved"  
 data: id of the removed Lobby
 
 event: "lobbyStatusChanged"  
-data: a JSON object that contains the lobby ID and new status
-```js
-{
-  lobby: "530b3d5cceacfc293ad9ce1f",
-  status: "waitingForMatchToStart"
-}
-```
+data: a Lobby model without the Users or Messages array
 
 **Notes:**
 
