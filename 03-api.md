@@ -470,7 +470,7 @@ Error:
 
 | Keys | Values |
 | ---- | ------ |
-| lobby | id of the lobby to leave |
+| lobby | id of the lobby to start a match for |
 
 **Output:**
 
