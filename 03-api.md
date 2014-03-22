@@ -165,14 +165,7 @@ Success:  an array of Lobby models, each containing an array of User models
   minNumPlayers: 5,
   host: "530b394026b8fd163957e8ae",
   updatedAt: "2014-02-24T12:38:52.885Z",
-  status: 'waitingForPlayersToJoin',
-  users: [{
-    createdAt: "2014-02-21T06:00:08.220Z",
-    email: "user@email.com",
-    id: "5306eb68def6573a07d7ba13",
-    updatedAt: "2014-02-21T06:00:08.221Z",
-    username: "user"
-  }, ...]
+  status: 'waitingForPlayersToJoin'
 }, ... ]
 ```
 
@@ -196,9 +189,20 @@ data: a Lobby model, which contains an array of User models
 event: "lobbyRemoved"  
 data: id of the removed Lobby
 
+event: "lobbyStatusChanged"  
+data: a JSON object that contains the lobby ID and new status
+```js
+{
+  lobby: "530b3d5cceacfc293ad9ce1f",
+  status: "waitingForMatchToStart"
+}
+```
+
 **Notes:**
 
 Must make the request using sockets to receive socket messages.
+
+Additionally, the array of lobbies do not contain the list of users or the messages in that lobby. To receive that information, the user must first join the lobby. We plan to add user count information in the future.
 
 --------------------------------------------------
 
@@ -276,6 +280,13 @@ Success: a Lobby model, which contains an array of User models
     id: "5306eb68def6573a07d7ba13",
     updatedAt: "2014-02-21T06:00:08.221Z",
     username: "user"
+  }, ...],
+  messages: [{
+    content: "Hello, World!",
+    createdAt: "2014-02-24T12:14:50.000Z",
+    id: "530b3d5cceacfc293ad9ce1f",
+    from: "530b394026b8fd163957e8ae",
+    updatedAt: "2014-02-24T12:38:52.885Z"
   }, ...]
 }
 ```
@@ -348,6 +359,13 @@ Success: a Lobby model, which contains an array of User models
     id: "5306eb68def6573a07d7ba13",
     updatedAt: "2014-02-21T06:00:08.221Z",
     username: "user"
+  }, ...],
+  messages: [{
+    content: "Hello, World!",
+    createdAt: "2014-02-24T12:14:50.000Z",
+    id: "530b3d5cceacfc293ad9ce1f",
+    from: "530b394026b8fd163957e8ae",
+    updatedAt: "2014-02-24T12:38:52.885Z"
   }, ...]
 }
 ```
@@ -445,7 +463,7 @@ Success: a Message model
   createdAt: "2014-02-24T12:14:50.000Z",
   id: "530b3d5cceacfc293ad9ce1f",
   from: "530b394026b8fd163957e8ae",
-  updatedAt: "2014-02-24T12:38:52.885Z",
+  updatedAt: "2014-02-24T12:38:52.885Z"
 }
 ```
 
