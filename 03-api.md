@@ -623,3 +623,267 @@ There are no socket messages. The state for any player is restricted in that onl
 **Notes:**
 
 The player state should contain any information that only a certain player should have access to. It will not be directly accessible by other users. By calling this endpoint, you are more or less just persisting the player state to the server (useful if the player quits playing for awhile or switches devices).
+
+--------------------------------------------------
+
+## Send Broadcast Event
+
+**Route:** _POST /match/sendBroadcastEvent_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| match | id of the match to update |
+| payload | JSON representing the data to send |
+| issuedTo | array of user ids to send the message to (optional - if not included or an empty array, will send to everyone) |
+
+**Output:**
+
+Success: a 'broadcast' Event model
+
+```js
+{
+  match: '5345fe411c4ce5f81f0a9d37',
+  event: 'broadcast',
+  issuedBy: '5345fe3c1c4ce5f81f0a9c64',
+  data: ...,
+  createdAt: '2014-04-10T02:13:21.048Z',
+  updatedAt: '2014-04-10T02:13:21.048Z',
+  id: '5345fe411c4ce5f81f0a9d3c'
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "broadcast"  
+data: a 'broadcast' Event model (see 'Success' output above)
+
+**Notes:**
+
+Use this endpoint to message users with some data.
+
+--------------------------------------------------
+
+## Send Request Event
+
+**Route:** _POST /match/sendRequestEvent_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| match | id of the match to update |
+| payload | JSON representing the data to send |
+| issuedTo | array of user ids to send the message to (optional - if not included or an empty array, will send to everyone) |
+
+**Output:**
+
+Success: a 'request' Event model
+
+```js
+{
+  match: '534601d7f3f06efa21eb61e8',
+  event: 'request',
+  issuedBy: '534601d0f3f06efa21eb60db',
+  data: ...,
+  createdAt: '2014-04-10T02:28:39.315Z',
+  updatedAt: '2014-04-10T02:28:39.315Z',
+  id: '534601d7f3f06efa21eb61ed'
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "request"  
+data: a 'request' Event model (see 'Success' output above)
+
+**Notes:**
+
+Use this endpoint to message users with some data, and you expect those users to respond with a 'respond' event at some point in the future.
+
+--------------------------------------------------
+
+## Send Response Event
+
+**Route:** _POST /match/sendResponseEvent_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| event | id of the 'response' event you are responding to (note: must be a 'response' event, not any other kind of event) |
+| payload | JSON representing the data to send |
+
+**Output:**
+
+Success: a 'response' Event model
+
+```js
+{
+  match: '534602ae2028d5372264d22b',
+  event: 'response',
+  issuedBy: '534602a62028d5372264d0e6',
+  data: ...,
+  createdAt: '2014-04-10T02:32:14.964Z',
+  updatedAt: '2014-04-10T02:32:14.964Z',
+  id: '534602ae2028d5372264d232'
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "response"  
+data: a 'response' Event model (see 'Success' output above)
+
+**Notes:**
+
+Use this endpoint to respond with some data to a 'request' event.
+
+--------------------------------------------------
+
+## Send Turnover Event
+
+**Route:** _POST /match/sendTurnoverEvent_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| match | id of the match to update |
+| payload | JSON representing the data to send |
+| issuedTo | user id of whomever should receive control of the match lock next (as a string or as an array containing one string) |
+
+**Output:**
+
+Success: a 'turnover' Event model
+
+```js
+{
+  match: '534603341683f26722f40437',
+  event: 'turnover',
+  issuedBy: '5346032a1683f26722f402bd',
+  data: ...,
+  createdAt: '2014-04-10T02:34:28.641Z',
+  updatedAt: '2014-04-10T02:34:28.641Z',
+  id: '534603341683f26722f4043c'
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "turnover"  
+data: a 'turnover' Event model (see 'Success' output above)
+
+**Notes:**
+
+This endpoint is used to give the match lock to another player. Since only the player in control of the match lock can update the common state, this endpoint is useful for signifying the end of one player's turn and the start of another's turn.
+
+--------------------------------------------------
+
+## End Match
+
+**Route:** _POST /match/endMatch_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| match | id of the match to update |
+| payload | JSON representing the data to send |
+
+**Output:**
+
+Success: an 'endMatch' Event model
+
+```js
+{
+  match: '534604855fbe3dc62237d9b9',
+  event: 'endMatch',
+  issuedBy: '534604785fbe3dc62237d7e2',
+  data: ...,
+  createdAt: '2014-04-10T02:40:05.249Z',
+  updatedAt: '2014-04-10T02:40:05.249Z',
+  id: '534604855fbe3dc62237d9be'
+}
+
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "endMatch"  
+data: an 'endMatch' Event model (see 'Success' output above)
+
+**Notes:**
+
+Use this endpoint to message everyone about the end of the match. Note that this endpoint automatically messages everyone (i.e. there is no issuedTo parameter).
