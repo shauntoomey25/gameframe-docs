@@ -309,7 +309,7 @@ event: "hostChanged"
 data: id of the new host user
 
 event: "newUserMessage"  
-data: a Message model for a user-sent message (contains a User ID in the "from" attribute)
+data: a Message model for a user-sent message (contains a User id in the "from" attribute)
 
 event: "newSystemMessage"  
 data: a Message model for a system-sent message (no "from" attribute)
@@ -388,7 +388,7 @@ event: "hostChanged"
 data: id of the new host user
 
 event: "newUserMessage"  
-data: a Message model for a user-sent message (contains a User ID in the "from" attribute)
+data: a Message model for a user-sent message (contains a User id in the "from" attribute)
 
 event: "newSystemMessage"  
 data: a Message model for a system-sent message (no "from" attribute)
@@ -486,6 +486,118 @@ Error:
 
 **Output:**
 
+Success: the id of the started match and the value of the dirty integer for the commonState
+
+```js
+{
+  id: "530b3d5cceacfc293ad9ce1f",
+  dirty: 0
+}
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "matchStarted"  
+data: an object containing the id of the started match and the current dirty integer for the commonState
+```js
+{
+  id: "530b3d5cceacfc293ad9ce1f",
+  dirty: 0 
+}
+```
+
+**Notes:**
+
+While a Match model exists on the server, the client will not receive this information. The important models for the client are the Lobby, CommonState, PlayerState, and Event models (the Match model just connects all these). However, the client will need to track the match id for use later when calling methods on the Match controller.
+
+--------------------------------------------------
+
+## Update Common State
+
+**Route:** _POST /match/updateCommonState_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| match | id of the match to update |
+| dirty | lasty dirty integer from the common state |
+| state | JSON representing the new common state |
+
+**Output:**
+
+Success: a 'commonStateUpdated' Event model
+
+```js
+{
+  match: '5345fa077113aaf81dbf6296',
+  event: 'commonStateUpdated',
+  issuedBy: '5345fa067113aaf81dbf6256',
+  data: {
+    state: 'TEST',
+    dirty: 1
+  },
+  createdAt: '2014-04-10T01:55:19.908Z',
+  updatedAt: '2014-04-10T01:55:19.908Z',
+  id: '5345fa077113aaf81dbf629b'
+}
+
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Socket Messages:**
+
+on: "match"  
+verb: "messaged"
+
+event: "commonStateUpdated"  
+data: a 'commonStateUpdated' Event model (see 'Success' output above)
+
+**Notes:**
+
+Most events have an "issuedTo" field, but since the 'commonStateUpdated' event is sent to everyone, that field does not exist.
+
+Additionally, only a player that has control of the match lock can update the common state. To transfer ownership of the lock, use a 'turnover' event.
+
+--------------------------------------------------
+
+## Update Player State
+
+**Route:** _POST /match/updatePLayerState_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| match | id of the match to update |
+| state | JSON representing the new common state |
+
+**Output:**
+
 Success:
 
 ```js
@@ -506,12 +618,8 @@ Error:
 
 **Socket Messages:**
 
-on: "match"  
-verb: "messaged"
-
-event: "matchStarted"  
-data: null
+There are no socket messages. The state for any player is restricted in that only that player has access to it.
 
 **Notes:**
 
-While a Match model exists on the server, the client will not receive this information. The important models for the client are the Lobby, CommonState, and PlayerState models (the Match model just connects all these).
+The player state should contain any information that only a certain player should have access to. It will not be directly accessible by other users. By calling this endpoint, you are more or less just persisting the player state to the server (useful if the player quits playing for awhile or switches devices).
