@@ -46,6 +46,7 @@ Notes: Our models are still rapidly evolving. The attributes listed below are th
 | maxNumPlayers | integer representing the maximum number of players allowed in the lobby |
 | status | either 'waitingForPlayersToJoin', 'waitingForMatchToStart', or 'inMatch' |
 | users | an array of User models representing the current users in the lobby |
+| events | an array of Event models representing all events since the start of the match |
 | createdAt | when the Lobby was created |
 | updatedAt | when the Lobby was last updated |
 
@@ -110,3 +111,30 @@ A player can only update the Common State if their user ID is in the match's loc
 **Notes**:
 
 A player can only update their own Player State, and no other players will have direct access to their Player State. The player must also provide the last value of their player state's "dirty" attribute.
+
+--------------------------------------------------
+
+## Event
+
+| Keys | Description |
+| ---- | ------ |
+| id | the unique player state id |
+| match | the unique match id associated with this event |
+| event | either 'startMatch', 'broadcast', 'request', 'response', 'turnover', 'commonStateUpdated', 'playerStateUpdated', or 'endMatch' |
+| issuedBy | the unique user id of the user who issued this event |
+| issuedTo | an array of user ids representing who should received the event (if everyone should receive the event, it is the empty array) |
+| data | JSON value representing the event payload |
+| createdAt | when the Message was created |
+| updatedAt | when the Message was last updated |
+
+**Notes**:
+
+There are currently 7 event types:
+
+* *startMatch* - issued to everyone at the beginning of the match, host of the match has control of the match lock
+* *broadcast* - used to send some users (or everyone) a message
+* *request* - similar to a broadcast event, but indicates to the receiver that the sender expects a response event in return
+* *response* - used to pass data back to the sender of a request event
+* *turnover* - used to forfeit your control of the match lock and give it to another player
+* *commonStateUpdated* - sent to everyone else after a player updates the commonState of the match
+* *endMatch* - issued to everyone at the end of the match
