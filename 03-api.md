@@ -108,6 +108,55 @@ There are currently no error messages for logging out. The 'success' message gua
 
 --------------------------------------------------
 
+## Fetch Users
+
+**Route:** _GET /user/fetchUsers_
+
+**Connection Type:** HTTP Request or Sockets
+
+**Input:**
+
+| Keys | Values |
+| ---- | ------ |
+| users | an array of user ids |
+
+**Output:**
+
+Success:
+
+```js
+[{
+  username: 'testuser1',
+  email: 'testuser1@email.com',
+  createdAt: '2014-04-13T06:08:21.325Z',
+  updatedAt: '2014-04-13T06:08:21.325Z',
+  id: '534a29d5abb5ca9a14e9cf94'
+},
+{
+  username: 'testuser2',
+  email: 'testuser2@email.com',
+  createdAt: '2014-04-13T06:08:21.326Z',
+  updatedAt: '2014-04-13T06:08:21.327Z',
+  id: '534a29d5abb5ca9a14e9cf95'
+}]
+
+```
+
+Error:
+
+```js
+{
+  status: "error",
+  message: "Error message here." 
+}
+```
+
+**Notes:**
+
+The array of returned users only consists of the users found, given the ids passed in initially. If no users are found, the output will be the empty array.
+
+--------------------------------------------------
+
 ## Fetch Games
 
 **Route:** _GET /game_
