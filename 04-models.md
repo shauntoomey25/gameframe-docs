@@ -22,13 +22,29 @@ Notes: Our models are still rapidly evolving. The attributes listed below are th
 
 --------------------------------------------------
 
+## Dev
+
+| Keys | Description |
+| ---- | ------ |
+| id | the dev's unique user id |
+| username | the dev's unique name |
+| email | the dev's email address |
+| password | the hashed version of the dev's password |
+| games | a collection of the dev's Game models |
+| createdAt | when the User was created |
+| updatedAt | when the User was last updated |
+
+--------------------------------------------------
+
 ## Game
 
 | Keys | Description |
 | ---- | ------ |
 | id | the unique game id |
 | title | the game's title |
-| developer | the game's developer |
+| url | website for the Chromecast to open (optional) |
+| dev | a Dev model representing the developer of the game |
+| lobbies | a collection of Lobby models representing current lobbies for this game |
 | createdAt | when the Game was created |
 | updatedAt | when the Game was last updated |
 

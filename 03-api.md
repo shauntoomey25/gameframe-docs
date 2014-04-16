@@ -173,7 +173,8 @@ Success:  an array of Game models
 [{
   id: "530b1f08f01ac484dc981c3d",
   title: "com.gameframe.poker",
-  developer: "Game Frame Studios"
+  url: "http://poker.io",
+  dev: "534602ae2028d5372264d22b"
 }, ... ]
 ```
 
