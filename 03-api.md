@@ -561,6 +561,7 @@ verb: "messaged"
 
 event: "matchStarted"  
 data: an object containing the id of the started match and the current dirty integer for the commonState
+
 ```js
 {
   id: "530b3d5cceacfc293ad9ce1f",
