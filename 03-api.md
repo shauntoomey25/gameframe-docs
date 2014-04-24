@@ -847,7 +847,7 @@ Use this endpoint to respond with some data to a 'request' event.
 | ---- | ------ |
 | match | id of the match to update |
 | payload | JSON representing the data to send |
-| issuedTo | user id of whomever should receive control of the match lock next (as a string or as an array containing one string) |
+| turnoverTo | user id of whomever should receive control of the match lock next (as a string or as an array containing one string) |
 
 **Output:**
 
@@ -858,7 +858,10 @@ Success: a 'turnover' Event model
   match: '534603341683f26722f40437',
   event: 'turnover',
   issuedBy: '5346032a1683f26722f402bd',
-  data: ...,
+  data: {
+    turnoverTo: '534602ae2028d5372264d232',
+    payload: ...
+  },
   createdAt: '2014-04-10T02:34:28.641Z',
   updatedAt: '2014-04-10T02:34:28.641Z',
   id: '534603341683f26722f4043c'
@@ -884,7 +887,7 @@ data: a 'turnover' Event model (see 'Success' output above)
 
 **Notes:**
 
-This endpoint is used to give the match lock to another player. Since only the player in control of the match lock can update the common state, this endpoint is useful for signifying the end of one player's turn and the start of another's turn.
+This endpoint is used to give the match lock to another player. Since only the player in control of the match lock can update the common state, this endpoint is useful for signifying the end of one player's turn and the start of another's turn. Note that this event is sent to everyone (i.e. you cannot specify issuedTo at this time).
 
 --------------------------------------------------
 

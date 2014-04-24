@@ -151,6 +151,6 @@ There are currently 7 event types:
 * *broadcast* - used to send some users (or everyone) a message
 * *request* - similar to a broadcast event, but indicates to the receiver that the sender expects a response event in return
 * *response* - used to pass data back to the sender of a request event
-* *turnover* - used to forfeit your control of the match lock and give it to another player
+* *turnover* - used to forfeit your control of the match lock and give it to another player (sent to everyone)
 * *commonStateUpdated* - sent to everyone else after a player updates the commonState of the match
 * *endMatch* - issued to everyone at the end of the match
