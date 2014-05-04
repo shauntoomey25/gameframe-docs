@@ -6,10 +6,6 @@ group: navigation
 permalink: "models.html"
 ---
 
-Notes: Our models are still rapidly evolving. The attributes listed below are the most stable ones (i.e. they probably won't change). Models may gain more attributes as needed. Additionally
-
---------------------------------------------------
-
 ## User
 
 | Keys | Description |
