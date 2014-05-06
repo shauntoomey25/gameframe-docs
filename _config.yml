@@ -1,5 +1,5 @@
 name: Game Frame
-tagline: multiplayer board/card game framework
+tagline: Networked multiplayer games made easy.
 
 markdown: redcarpet
 redcarpet:
