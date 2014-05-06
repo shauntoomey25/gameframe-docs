@@ -16,6 +16,8 @@ permalink: "android.html"
 
 **Action:** Log in the user on the server.
 
+--------------------------------------------------
+
 ## Register
 
 **Method:** AuthenticationManager.register()
@@ -25,6 +27,8 @@ permalink: "android.html"
 **Events:** UserRegisterEvent
 
 **Action:** Register a new user on the server.
+
+--------------------------------------------------
 
 ## Logout
 
@@ -36,6 +40,8 @@ permalink: "android.html"
 
 **Action:** Logout the local user on the server.
 
+--------------------------------------------------
+
 ## Fetch Lobby List
 
 **Method:** LobbyListManager.fetchLobbyList()
@@ -45,6 +51,8 @@ permalink: "android.html"
 **Events:** LobbyListEvent, LobbyAddEvent, LobbyRemoveEvent
 
 **Action:** Fetches the current list of active lobbies and subscribes the application to receive notices of lobbies that are added or deleted from the list.
+
+--------------------------------------------------
 
 ## Unsubscribe From Lobby List
 
@@ -56,6 +64,8 @@ permalink: "android.html"
 
 **Action:** Cancels the application's subscription to receive notices of lobbies that are added or deleted from the list.
 
+--------------------------------------------------
+
 ## Join Lobby
 
 **Method:** LobbyManager.joinLobby()
@@ -65,6 +75,8 @@ permalink: "android.html"
 **Events:** LobbyJoinEvent, UserAddEvent, UserRemoveEvent, NewMessageEvent
 
 **Action:** Join the local player to the lobby specified and subscribes the application to receive notifications of users added to or removed from that lobby, as well as chat messages.
+
+--------------------------------------------------
 
 ## Create Lobby
 
@@ -76,6 +88,8 @@ permalink: "android.html"
 
 **Action:** Attempts to create a new lobby with the parameters given.
 
+--------------------------------------------------
+
 ## Send Chat Message
 
 **Method:** LobbyManager.sendMessage()
@@ -85,6 +99,8 @@ permalink: "android.html"
 **Events:** NewMessageEvent
 
 **Action:** Attempts to send a new chat messages to all players in the lobby.
+
+--------------------------------------------------
 
 ## Leave Lobby
 
@@ -96,6 +112,8 @@ permalink: "android.html"
 
 **Action:** Remove the user from the given lobby, as well as unsubscribe the application from user and chat modifications in that lobby.
 
+--------------------------------------------------
+
 ## Start Match
 
 **Method:** LobbyManager.startMatch()
@@ -105,6 +123,8 @@ permalink: "android.html"
 **Events:** MatchStartedEvent
 
 **Action:** Start the match of the given lobby, notifying all player that the match has  begun.
+
+--------------------------------------------------
 
 ## Update Common State
 
@@ -116,6 +136,8 @@ permalink: "android.html"
 
 **Action:** Update the common state on the server to the supplied JSON object and notify all players of the change.
 
+--------------------------------------------------
+
 ## Update Player State
 
 **Method:** MatchManager.updateCommonState()
@@ -125,6 +147,8 @@ permalink: "android.html"
 **Events:** None
 
 **Action:** Update the player state on the server to the supplied JSON object.
+
+--------------------------------------------------
 
 ## Send Broadcast
 
@@ -136,6 +160,8 @@ permalink: "android.html"
 
 **Action:** Send a broadcast message and JSON payload to the given players. If no player IDs are included, all players will receive the message.
 
+--------------------------------------------------
+
 ## Send Request
 
 **Method:** MatchManager.sendRequest()
@@ -146,7 +172,9 @@ permalink: "android.html"
 
 **Action:** Send a request message and JSON payload to the given players. If no player IDs are included, all players will receive the message.
 
-## Send response
+--------------------------------------------------
+
+## Send Response
 
 **Method:** MatchManager.sendResponse()
 
@@ -155,6 +183,8 @@ permalink: "android.html"
 **Events:** ResponseEvent
 
 **Action:** Send a response message in reply to the request whose ID is supplied.
+
+--------------------------------------------------
 
 ## Send Turn Over
 
@@ -165,6 +195,8 @@ permalink: "android.html"
 **Events:** TurnoverEvent
 
 **Action:** Send a turnover message and JSON payload to all players, putting the given player in the lock.
+
+--------------------------------------------------
 
 ## Send End Match
 
